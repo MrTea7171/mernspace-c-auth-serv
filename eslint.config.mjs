@@ -9,7 +9,7 @@ export default tseslint.config(
     {
         languageOptions: {
             parserOptions: {
-                projectService: { allowDefaultProject: ['*.mjs'] },
+                projectService: { allowDefaultProject: ['*.mjs', '*.ts'] },
                 tsconfigRootDir: import.meta.dirname,
             },
         },
@@ -17,9 +17,15 @@ export default tseslint.config(
         rules: {
             // 'no-console': 'error',
             'dot-notation': 'error',
+            '@typescript-eslint/no-misused-promises': [
+                'error',
+                {
+                    checksVoidReturn: false,
+                },
+            ],
         },
     },
     {
-        ignores: ['node_modules', 'dist'],
+        ignores: ['node_modules', 'dist', 'jest.config.js'],
     },
 );
