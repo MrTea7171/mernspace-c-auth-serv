@@ -18,7 +18,7 @@ const logger = winston.createLogger({
                 winston.format.timestamp(),
                 winston.format.json(),
             ),
-            silent: isLoggingEnabled,
+            silent: !isLoggingEnabled,
         }),
         new winston.transports.File({
             dirname: 'logs',
@@ -28,7 +28,7 @@ const logger = winston.createLogger({
                 winston.format.timestamp(),
                 winston.format.json(),
             ),
-            silent: isLoggingEnabled,
+            silent: !isLoggingEnabled,
         }),
         new winston.transports.Console({
             level: 'info',
@@ -36,7 +36,7 @@ const logger = winston.createLogger({
                 winston.format.timestamp(),
                 winston.format.json(),
             ),
-            silent: isLoggingEnabled,
+            silent: !isLoggingEnabled,
         }),
     ],
 });
